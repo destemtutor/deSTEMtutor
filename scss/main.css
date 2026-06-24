@@ -14,6 +14,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -75,7 +76,7 @@ img {
   }
 }
 .site-logo {
-  height: 100px;
+  max-height: 64px;
   width: auto;
   -o-object-fit: contain;
      object-fit: contain;
@@ -138,7 +139,7 @@ img {
 .main-nav .nav-toggle span {
   width: 1.4rem;
   height: 2px;
-  background: #1f2937;
+  background: #FFFFFF;
   border-radius: 999px;
   transition: transform 0.18s ease-out, opacity 0.18s ease-out;
 }
@@ -238,6 +239,9 @@ img {
   gap: 2.25rem;
   align-items: center;
 }
+.hero .hero-content {
+  max-width: 100%;
+}
 .hero .hero-content h1 {
   font-size: clamp(2.2rem, 3vw, 2.8rem);
   line-height: 1.15;
@@ -246,7 +250,7 @@ img {
 .hero .hero-content p {
   font-size: 0.98rem;
   color: #6b7280;
-  max-width: 36rem;
+  max-width: 100%;
   margin-bottom: 1.5rem;
 }
 .hero .hero-actions {
@@ -261,6 +265,7 @@ img {
   gap: 0.75rem;
   font-size: 0.8rem;
   color: #f7f8fa;
+  text-align: center;
 }
 .hero .hero-meta span {
   padding: 0.35rem 0.7rem;
@@ -297,6 +302,10 @@ img {
   content: "•";
   color: #eb5a07;
   margin-right: 0.4rem;
+}
+
+section {
+  max-width: 100vw;
 }
 
 .section {
@@ -607,8 +616,18 @@ img {
 
 /* Responsiveness */
 @media (max-width: 960px) {
-  .hero-inner {
-    grid-template-columns: minmax(0, 1fr);
+  .hero .hero-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .hero .hero-photo img {
+    max-width: 220px;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+  .hero .hero-content {
+    text-align: left;
   }
   .cards,
   .pricing-grid {
@@ -650,5 +669,103 @@ img {
   }
   .form-row {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .hero .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero .hero-photo {
+    order: -1; /* foto bovenaan */
+    margin-bottom: 1.5rem;
+  }
+  .hero .hero-photo img {
+    max-width: 180px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .hero .hero-content {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .hero .hero-meta {
+    justify-content: center;
+  }
+  .hero .hero-highlight-card {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+}
+@media (max-width: 600px) {
+  .site-logo {
+    max-height: 36px;
+  }
+  .site-header .header-inner {
+    padding-inline: 0.75rem;
+  }
+  .site-header .container {
+    max-width: 100vw;
+    width: 100%;
+  }
+  .main-nav {
+    margin-left: auto;
+  }
+  .nav-toggle {
+    transform: scale(0.9);
+  }
+  .site-header .header-inner {
+    min-height: 64px;
+  }
+}
+@media (max-width: 720px) {
+  .hero {
+    overflow-x: hidden;
+  }
+  .hero-inner {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .hero-content,
+  .hero-meta,
+  .hero-actions,
+  .hero-highlight-card {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .hero h1 {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+}
+/* Fix: witruimte rechts vanaf 720px */
+@media (max-width: 720px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  .hero {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  .hero-inner {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0 0.75rem; /* voorkomt dat container + grid samen >100vw worden */
+  }
+  .hero-content,
+  .hero-meta,
+  .hero-actions,
+  .hero-highlight-card {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+  .hero h1 {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 }/*# sourceMappingURL=main.css.map */
