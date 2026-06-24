@@ -1,0 +1,64 @@
+$font-primary: "Poppins", system-ui, sans-serif;
+$font-secondary: "DM Sans", system-ui, sans-serif;
+
+$color-bg: #f7f8fa;
+$color-bg-alt: #ffffff;
+$color-surface: #ffffff;
+$orange:#eb5a07;
+
+$color-accent: $orange;
+$color-accent-soft: rgba(79, 70, 229, 0.08);
+$color-accent-strong: $orange;
+
+$color-text: #1f2937;
+$color-text-muted: #6b7280;
+
+$color-border: #e5e7eb;
+
+$radius-sm: 0.5rem;
+$radius-md: 0.75rem;
+$radius-lg: 1rem;
+
+$shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.08);
+$shadow-card: 0 16px 30px rgba(0, 0, 0, 0.12);
+
+$container-max-width: 1120px;
+$spacing-unit: 0.75rem;
+
+$transition-fast: 0.18s ease-out;
+$transition-normal: 0.25s ease-out;
+
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-inline: $spacing-unit * 2;
+}
+
+@mixin section-padding {
+  padding-block: $spacing-unit * 6;
+}
+@mixin glass-surface {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+@mixin interactive-hover {
+  transition: transform $transition-normal, box-shadow $transition-normal, background-color $transition-normal,
+    border-color $transition-normal, color $transition-normal;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.8);
+  }
+}
+
+.footer-privacy {
+  font-size: 0.75rem;
+  color: $color-text-muted;
+  max-width: 600px;
+  line-height: 1.4;
+}
